@@ -35,11 +35,13 @@
   fileSystems."/run/media/rph/Hoard" =
     { device = "/dev/disk/by-uuid/E4B2B401B2B3D670";
       fsType = "ntfs";
+      options = [ "nofail" ];
     };
 
   fileSystems."/run/media/rph/Stash" =
     { device = "/dev/disk/by-uuid/f99c6f52-858c-4b87-a788-4c8e43228a31";
       fsType = "ext4";
+      options = [ "nofail" ];
     };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
