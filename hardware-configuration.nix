@@ -12,6 +12,8 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+
+  # Latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   fileSystems."/" =
@@ -24,10 +26,21 @@
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
-
+  
   swapDevices =
     [ { device = "/dev/disk/by-uuid/f9759fbc-3446-42f6-a235-e6b998c8493e"; }
     ];
+
+  # Extra drives
+  fileSystems."/run/media/rph/Hoard" =
+    { device = "/dev/disk/by-uuid/E4B2B401B2B3D670";
+      fsType = "ntfs";
+    };
+
+  fileSystems."/run/media/rph/Stash" =
+    { device = "/dev/disk/by-uuid/f99c6f52-858c-4b87-a788-4c8e43228a31";
+      fsType = "ext4";
+    };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
