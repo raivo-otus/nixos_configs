@@ -35,13 +35,13 @@
   fileSystems."/srv/Hoard" =
     { device = "/dev/disk/by-uuid/E4B2B401B2B3D670";
       fsType = "ntfs";
-      options = [ "nofail" ];
+      options = [ "nofail" "x-gvfs-show" ];
     };
 
   fileSystems."/srv/Stash" =
     { device = "/dev/disk/by-uuid/f99c6f52-858c-4b87-a788-4c8e43228a31";
       fsType = "ext4";
-      options = [ "nofail" ];
+      options = [ "nofail" "x-gvfs-show" ];
     };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
