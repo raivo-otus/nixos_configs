@@ -16,6 +16,7 @@
     lockscreen-extension
     just-perfection
     appindicator
+    switcher
   ];
 
 }
