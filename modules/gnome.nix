@@ -12,13 +12,11 @@
     blur-my-shell
     caffeine
     space-bar
-    dash-to-dock
     lockscreen-extension
     just-perfection
     appindicator
     switcher
     forge
-    gsconnect
   ];
 
 }

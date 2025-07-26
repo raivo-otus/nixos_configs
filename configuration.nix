@@ -12,9 +12,7 @@
       ./modules/desktop_apps.nix
       ./modules/steam.nix
       ./modules/gnome.nix
-      #./modules/cosmic.nix
       ./modules/docker.nix
-      ./modules/devops.nix
     ];
 
   # Setting experimental features
@@ -75,7 +73,7 @@
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
-  services.blueman.enable = true;
+  # services.blueman.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.rph = {
