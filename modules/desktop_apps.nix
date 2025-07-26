@@ -24,6 +24,8 @@
     mattermost
     lazydocker
     lazygit
+    localsend
+    typora
   ];
   
   # Enable flatpak
