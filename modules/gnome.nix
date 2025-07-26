@@ -17,6 +17,8 @@
     just-perfection
     appindicator
     switcher
+    forge
+    gsconnect
   ];
 
 }

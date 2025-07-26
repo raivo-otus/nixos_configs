@@ -18,6 +18,7 @@
     r2modman
     quodlibet-full
     vscode.fhs
+    obsidian
   ];
 
   services.flatpak.enable = true;
