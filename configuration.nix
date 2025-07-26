@@ -12,7 +12,6 @@
       ./modules/desktop_apps.nix
       ./modules/steam.nix
       ./modules/gnome.nix
-      ./modules/docker.nix
     ];
 
   # Setting experimental features
