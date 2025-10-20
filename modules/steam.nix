@@ -18,5 +18,11 @@
     STEAM_EXTRA_COMPAT_TOOLS_PATHS =
       "/home/rph/.steam/root/compatibilitytools.d";
   };
+  
+  # TurtleWoW
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
 
 }

@@ -8,9 +8,10 @@
   };
 
   environment.systemPackages = with pkgs; [
-    rocmPackages.clr
-    rocmPackages.rocminfo
-    rocmPackages.rocm-smi
+    #rocmPackages.clr
+    #rocmPackages.rocminfo
+    #rocmPackages.rocm-smi
+    #ollama-rocm
   ];
 
   services.xserver.videoDrivers = ["amdgpu"];
