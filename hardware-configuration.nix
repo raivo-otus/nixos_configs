@@ -14,7 +14,7 @@
   boot.extraModulePackages = [ ];
 
   # Latest kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/74ce63ae-6e3a-4cd9-b119-9072c8371797";
@@ -33,8 +33,8 @@
 
   # Extra drives
   fileSystems."/srv/Hoard" =
-    { device = "/dev/disk/by-uuid/E4B2B401B2B3D670";
-      fsType = "ntfs";
+    { device = "/dev/disk/by-uuid/3b8983d5-ece1-4dfe-8c1a-4a4f019f7f6b";
+      fsType = "ext4";
       options = [ "nofail" "x-gvfs-show" ];
     };
 

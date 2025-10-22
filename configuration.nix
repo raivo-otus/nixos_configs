@@ -11,7 +11,8 @@
       ./modules/amd.nix
       ./modules/desktop_apps.nix
       ./modules/steam.nix
-      ./modules/gnome.nix
+      #./modules/gnome.nix
+      ./modules/cosmic.nix
     ];
 
   # Setting experimental features

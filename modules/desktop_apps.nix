@@ -20,13 +20,13 @@
     btop
     quodlibet-full
     vscode.fhs
-    obsidian
-    mattermost
     lazydocker
     lazygit
     localsend
-    typora
   ];
+
+  # Firmware updater
+  services.fwupd.enable = true;
   
   # Enable flatpak
   services.flatpak.enable = true;
