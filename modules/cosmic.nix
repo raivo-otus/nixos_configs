@@ -3,8 +3,9 @@
 {
 	services.displayManager.cosmic-greeter.enable = true;
 	services.desktopManager.cosmic.enable = true;
+	services.desktopManager.cosmic.xwayland.enable = true;
 
-	services.displaymanager.autoLogin = {
+	services.displayManager.autoLogin = {
 		enable = true;
 		user = "rph";
 		};

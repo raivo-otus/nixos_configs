@@ -19,10 +19,9 @@
     s-tui
     btop
     quodlibet-full
-    vscode.fhs
-    lazydocker
-    lazygit
     localsend
+    fastfetch
+    sabnzbd
   ];
 
   # Firmware updater

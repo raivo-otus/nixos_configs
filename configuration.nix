@@ -11,8 +11,8 @@
       ./modules/amd.nix
       ./modules/desktop_apps.nix
       ./modules/steam.nix
-      #./modules/gnome.nix
-      ./modules/cosmic.nix
+      ./modules/gnome.nix
+      #./modules/cosmic.nix
     ];
 
   # Setting experimental features
@@ -75,7 +75,7 @@
   hardware.bluetooth.powerOnBoot = true;
   # services.blueman.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Define a user account.
   users.users.rph = {
     isNormalUser = true;
     description = "rph";
@@ -85,8 +85,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     vim
     fzf
@@ -102,7 +101,7 @@
   nix.gc = {
     automatic = true;
     dates = "Weekly";
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 14d";
   };
 
   nix.settings.auto-optimise-store = true;

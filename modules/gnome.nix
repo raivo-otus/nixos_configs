@@ -16,7 +16,7 @@
     just-perfection
     appindicator
     switcher
-    forge
+    #forge # old version not compatible
   ];
 
 }
