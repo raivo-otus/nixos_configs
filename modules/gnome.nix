@@ -2,8 +2,7 @@
 
 {
 
-  services.xserver = {
-    enable = true;
+  services = {
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
@@ -12,11 +11,10 @@
     blur-my-shell
     caffeine
     space-bar
-    lockscreen-extension
     just-perfection
     appindicator
-    switcher
-    #forge # old version not compatible
+    search-light
+    paperwm
   ];
 
 }

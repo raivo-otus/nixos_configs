@@ -10,6 +10,8 @@
   environment.systemPackages = with pkgs; [
     mangohud
     protonup-ng
+    protontricks
+    bottles
   ];
 
   programs.gamemode.enable = true;
