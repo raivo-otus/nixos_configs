@@ -22,6 +22,8 @@
     localsend
     fastfetch
     sabnzbd
+    pv
+    bc
   ];
 
   # Firmware updater

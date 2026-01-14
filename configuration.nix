@@ -77,11 +77,6 @@
 	"default.clock.quantum" = 256;
 	"default.clock.min-quantum" = 128;
 	"default.clock.max-quantum" = 1024;
-
-	# Larger buffers if needed
-	#"default.clock.quantum" = 512;
-	#"default.clock.min-quantum" = 256;
-	#"default.clock.max-quantum" = 2048;
       };
     };
 
