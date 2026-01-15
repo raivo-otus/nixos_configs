@@ -71,12 +71,12 @@
 
     extraConfig.pipewire."99-audiophile" = {
       "context.properties" = {
-        "default.clock.rate" = 96000;
+        "default.clock.rate" = 48000;
         "default.clock.allowed-rates" = [ 44100 48000 88200 96000 ];
 	# Low latency
-	"default.clock.quantum" = 256;
-	"default.clock.min-quantum" = 128;
-	"default.clock.max-quantum" = 1024;
+	"default.clock.quantum" = 512;
+	"default.clock.min-quantum" = 256;
+	"default.clock.max-quantum" = 2048;
       };
     };
 
