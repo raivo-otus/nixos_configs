@@ -24,6 +24,7 @@
     sabnzbd
     pv
     bc
+    ladybird
   ];
 
   # Firmware updater

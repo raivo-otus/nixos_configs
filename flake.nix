@@ -4,17 +4,22 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
   };
 
-  outputs = { self, nixpkgs, chaotic, ... } @ inputs: {
+  outputs = { self, nixpkgs, nix-cachyos-kernel, ... } @ inputs: {
     nixosConfigurations.Grenth = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
-	chaotic.nixosModules.default
+    	(
+	  { pkgs, ... }:
+	    {
+	      nixpkgs.overlays = [nix-cachyos-kernel.overlays.default];
+	      boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-rt-bore-lto;
+	    }
+	)
       ];
     };
   };
-
 }
