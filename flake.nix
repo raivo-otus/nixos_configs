@@ -16,7 +16,7 @@
 	  { pkgs, ... }:
 	    {
 	      nixpkgs.overlays = [nix-cachyos-kernel.overlays.default];
-	      boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-rt-bore-lto;
+	      boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto;
 	    }
 	)
       ];
