@@ -15,6 +15,8 @@
       #./modules/cosmic.nix
     ];
 
+  boot.loader.systemd-boot.memtest86.enable = true;
+
   # Setting experimental features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
