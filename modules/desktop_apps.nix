@@ -25,6 +25,7 @@
     pv
     bc
     ladybird
+    jellyfin-desktop
   ];
 
   # Firmware updater

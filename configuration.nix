@@ -119,7 +119,7 @@
   nix.gc = {
     automatic = true;
     dates = "Weekly";
-    options = "--delete-older-than 14d";
+    options = "--delete-older-than 7d";
   };
 
   nix.settings.auto-optimise-store = true;
