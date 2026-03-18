@@ -10,8 +10,9 @@
       ./hardware-configuration.nix
       ./modules/amd.nix
       ./modules/desktop_apps.nix
-      ./modules/steam.nix
+      ./modules/devshells.nix
       ./modules/gnome.nix
+      ./modules/steam.nix
       #./modules/cosmic.nix
     ];
 
@@ -106,11 +107,6 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     vim
-    fzf
-    wget
-    curl
-    git
-    gh
     tmux 
   ];
 
