@@ -94,11 +94,14 @@
   hardware.bluetooth.powerOnBoot = true;
   # services.blueman.enable = true;
 
+  programs.zsh.enable = true;
+
   # Define a user account.
   users.users.rph = {
     isNormalUser = true;
     description = "rph";
     extraGroups = [ "networkmanager" "wheel" "gamemode" "storage" ];
+    shell = pkgs.zsh;
   };
 
   # Allow unfree packages

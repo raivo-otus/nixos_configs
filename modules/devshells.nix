@@ -5,8 +5,7 @@
     # For dev shells
     git
     gh
-    direnv
-    nix-direnv
+    lazygit
     # For neovim
     fd
     ripgrep
@@ -15,6 +14,11 @@
     curl
     unzip
   ];
+
+  programs.direnv = {
+    enable = true;
+    loadInNixShell = true;
+  };
 
   programs.bash.interactiveShellInit = ''
     eval "$(direnv hook bash)"
