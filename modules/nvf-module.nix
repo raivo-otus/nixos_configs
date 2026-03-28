@@ -6,6 +6,12 @@
       style = "dark";
     };
 
+    options = {
+      expandtab = true;
+      shiftwidth = 2;
+      tabstop = 2;
+    };
+
     globals.mapleader = " ";
 
     statusline.lualine.enable = true;
@@ -34,6 +40,13 @@
     lsp = {
       enable = true;
       formatOnSave = true;
+    };
+
+    extraPlugins = with pkgs.vimPlugins; {
+      "guess-indent" = {
+        package = guess-indent-nvim;
+        setup = "require('guess-indent').setup {}";
+      };
     };
   };
 }
