@@ -6,12 +6,17 @@
       style = "dark";
     };
 
+    globals.mapleader = " ";
+
     statusline.lualine.enable = true;
     telescope.enable = true;
     autocomplete.nvim-cmp.enable = true;
     filetree.neo-tree.enable = true;
     binds.whichKey.enable = true;
     git.gitsigns.enable = true;
+    visuals.indent-blankline.enable = true;
+    dashboard.dashboard-nvim.enable = true;
+    autopairs.nvim-autopairs.enable = true;
 
     languages = {
       enableTreesitter = true;
@@ -29,6 +34,7 @@
     lsp = {
       enable = true;
       formatOnSave = true;
+      lspsage.enable = true;
     };
   };
 }
