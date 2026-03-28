@@ -10,6 +10,7 @@
   imports = [
     ./hardware-configuration.nix
     ./modules/amd.nix
+    ./ollama_mcp.nix
     ./modules/desktop_apps.nix
     ./modules/devshells.nix
     #./modules/gnome.nix
