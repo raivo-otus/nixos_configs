@@ -10,12 +10,13 @@
   imports = [
     ./hardware-configuration.nix
     ./modules/amd.nix
-    ./ollama_mcp.nix
+    ./modules/ollama_mcp.nix
     ./modules/desktop_apps.nix
     ./modules/devshells.nix
     #./modules/gnome.nix
     ./modules/steam.nix
     ./modules/cosmic.nix
+    ./modules/zed.nix
   ];
 
   boot.loader.systemd-boot.memtest86.enable = true;

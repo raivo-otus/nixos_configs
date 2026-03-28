@@ -6,11 +6,10 @@
   # Enable Ollama
   services.ollama = {
     enable = true;
+    package = pkgs.ollama-rocm;
     # Expose the API to your local network
     host = "0.0.0.0";
     port = 11434;
-
-    acceleration = "rocm";
   };
 
   # Open the port in the firewall so other devices can connect
@@ -19,12 +18,8 @@
     allowedTCPPorts = [11434];
   };
 
-  # (Optional but recommended) Install a UI like Open-WebUI to manage models
-  services.open-webui = {
-    enable = true;
-    port = 8080;
-    environment = {
-      OLLAMA_API_BASE_URL = "http://127.0.0.1:11434/api";
-    };
+  environment.shellAliases = {
+    ai-up = "sudo systemctl start ollama";
+    ai-down = "sudo systemctl stop ollama";
   };
 }
