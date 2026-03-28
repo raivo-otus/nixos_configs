@@ -34,7 +34,6 @@
     lsp = {
       enable = true;
       formatOnSave = true;
-      lspsage.enable = true;
     };
   };
 }
