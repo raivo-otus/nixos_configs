@@ -11,9 +11,9 @@
       ./modules/amd.nix
       ./modules/desktop_apps.nix
       ./modules/devshells.nix
-      ./modules/gnome.nix
+      #./modules/gnome.nix
       ./modules/steam.nix
-      #./modules/cosmic.nix
+      ./modules/cosmic.nix
     ];
 
   boot.loader.systemd-boot.memtest86.enable = true;
@@ -96,6 +96,10 @@
 
   programs.zsh.enable = true;
 
+  environment.variables = {
+    TERMINAL = "ghostty";
+  };
+
   # Define a user account.
   users.users.rph = {
     isNormalUser = true;
@@ -110,7 +114,8 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     vim
-    tmux 
+    tmux
+    ghostty
   ];
 
   environment.variables.EDITOR = "nvim";

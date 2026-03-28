@@ -14,7 +14,6 @@
     just-perfection
     appindicator
     search-light
-    paperwm
   ];
 
 }

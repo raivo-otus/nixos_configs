@@ -26,6 +26,7 @@
     bc
     ladybird
     jellyfin-desktop
+    starship
   ];
 
   # Firmware updater
