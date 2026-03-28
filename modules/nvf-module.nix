@@ -31,7 +31,6 @@
       nix.enable = true;
       markdown.enable = true;
       r.enable = true;
-      julia.enable = true;
       lua.enable = true;
       yaml.enable = true;
       toml.enable = true;
