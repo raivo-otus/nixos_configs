@@ -43,7 +43,7 @@
     nixosConfigurations.Grenth = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        ./configuration.nix
+        ./hosts/Grenth/configuration.nix
         (
           {pkgs, ...}: {
             nixpkgs.overlays = [nix-cachyos-kernel.overlays.default];
