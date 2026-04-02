@@ -48,5 +48,5 @@
 
   # 3. Open Web Ports
   # Caddy needs these to receive the traffic before forwarding it
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 80 ];
 }

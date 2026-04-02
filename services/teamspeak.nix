@@ -5,7 +5,6 @@
   boot.kernelParams = [ "vsyscall=emulate" ];
 
   virtualisation.oci-containers = {
-    backend = "docker";
     containers.teamspeak6 = {
       image = "teamspeaksystems/teamspeak6-server:latest";
       ports = [
@@ -31,11 +30,10 @@
 
   networking.firewall = {
     allowedTCPPorts = [
-      22
-      9987
+      30033
     ];
     allowedUDPPorts = [
-      30033
+      9987
     ];
   };
 

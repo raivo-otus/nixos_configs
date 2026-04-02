@@ -11,18 +11,21 @@
     ./hardware-configuration.nix
     ../../modules/amd.nix
     ../../modules/ollama_mcp.nix
-    ../../modules/desktop_apps.nix
+    ../../modules/gui-apps.nix
+    ../../modules/cli-tools.nix
     ../../modules/devshells.nix
-    #./modules/gnome.nix
+    #../../modules/gnome.nix
     ../../modules/steam.nix
     ../../modules/cosmic.nix
     ../../modules/zed.nix
+    ../../modules/locale.nix
+    ../../modules/shell.nix
+    ../../modules/nix-settings.nix
+    ../../users/rph.nix
+    ../../users/stna.nix
   ];
 
   boot.loader.systemd-boot.memtest86.enable = true;
-
-  # Setting experimental features
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -33,41 +36,12 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "Europe/Helsinki";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "fi_FI.UTF-8";
-    LC_IDENTIFICATION = "fi_FI.UTF-8";
-    LC_MEASUREMENT = "fi_FI.UTF-8";
-    LC_MONETARY = "fi_FI.UTF-8";
-    LC_NAME = "fi_FI.UTF-8";
-    LC_NUMERIC = "fi_FI.UTF-8";
-    LC_PAPER = "fi_FI.UTF-8";
-    LC_TELEPHONE = "fi_FI.UTF-8";
-    LC_TIME = "fi_FI.UTF-8";
-  };
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "fi";
-    variant = "nodeadkeys";
-  };
-
-  # Configure console keymap
-  console.keyMap = "fi";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -96,38 +70,9 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
-  programs.zsh.enable = true;
-
-  environment.variables = {
-    TERMINAL = "ghostty";
-    EDITOR = "nvim";
-  };
-
-  # Define a user account.
-  users.users.rph = {
-    isNormalUser = true;
-    description = "rph";
-    extraGroups = ["networkmanager" "wheel" "storage"];
-    shell = pkgs.zsh;
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     vim
-    tmux
-    ghostty
   ];
-
-  nix.gc = {
-    automatic = true;
-    dates = "Weekly";
-    options = "--delete-older-than 7d";
-  };
-
-  nix.settings.auto-optimise-store = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

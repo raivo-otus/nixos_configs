@@ -1,12 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  # 1. Enable Docker
-  virtualisation.docker.enable = true;
-  # Ensure the OCI containers backend is set to docker
-  virtualisation.oci-containers.backend = "docker";
-
-  # 2. Define the Containers
+  # Define the Containers
   virtualisation.oci-containers.containers = {
 
     sonarr = {
@@ -19,7 +14,7 @@
         TZ = "Etc/UTC";
       };
       volumes = [
-        "/home/rpth/config/sonarr:/config" # UPDATE THIS
+        "/home/rpth/config/sonarr:/config"
         "/srv/Glaurung/data:/data"
       ];
     };
@@ -34,7 +29,7 @@
         TZ = "Etc/UTC";
       };
       volumes = [
-        "/home/rpth/config/radarr:/config" # UPDATE THIS
+        "/home/rpth/config/radarr:/config"
         "/srv/Glaurung/data:/data"
       ];
     };
@@ -49,7 +44,7 @@
         TZ = "Etc/UTC";
       };
       volumes = [
-        "/home/rpth/config/sabnzb:/config" # UPDATE THIS
+        "/home/rpth/config/sabnzb:/config"
         "/srv/Glaurung/data:/data"
       ];
     };

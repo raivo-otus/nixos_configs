@@ -17,6 +17,13 @@
     ../../services/teamspeak.nix
     ../../services/tlp.nix
     ../../services/tailscale.nix
+    ../../modules/locale.nix
+    ../../modules/shell.nix
+    ../../modules/nix-settings.nix
+    ../../modules/cli-tools.nix
+    ../../modules/devshells.nix
+    ../../modules/gnome.nix
+    ../../users/rpth.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -35,53 +42,14 @@
 
   environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";};
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-
   networking.hostName = "lyssa"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "Europe/Helsinki";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "fi_FI.UTF-8";
-    LC_IDENTIFICATION = "fi_FI.UTF-8";
-    LC_MEASUREMENT = "fi_FI.UTF-8";
-    LC_MONETARY = "fi_FI.UTF-8";
-    LC_NAME = "fi_FI.UTF-8";
-    LC_NUMERIC = "fi_FI.UTF-8";
-    LC_PAPER = "fi_FI.UTF-8";
-    LC_TELEPHONE = "fi_FI.UTF-8";
-    LC_TIME = "fi_FI.UTF-8";
-  };
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.gdm = {
-    enable = true;
-    autoLogin.enable = true;
-    autoLogin.user = "rpth";
-  };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "fi";
-    variant = "nodeadkeys";
-  };
-
-  # Configure console keymap
-  console.keyMap = "fi";
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -90,25 +58,8 @@
     pulse.enable = true;
   };
 
-  users.users.rpth = {
-    isNormalUser = true;
-    description = "Rasmus Hindström";
-    extraGroups = ["networkmanager" "wheel" "docker"];
-    packages = with pkgs; [
-      # User packages
-    ];
-  };
-
-  nixpkgs.config.allowUnfree = true;
-
   environment.systemPackages = with pkgs; [
-    fastfetch
-    gh
-    git
-    tmux
     vim
-    wget
-    tree
   ];
 
   # Keep running
@@ -125,6 +76,7 @@
   };
 
   virtualisation.docker.enable = true;
+  virtualisation.oci-containers.backend = "docker";
 
   # External HDD mounting
   fileSystems."/srv/Glaurung" = {
@@ -136,8 +88,9 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
+    openFirewall = true;
     settings = {
-      PasswordAuthentication = false; # Set false after SSH keygen
+      PasswordAuthentication = false;
     };
     extraConfig = ''
       ClientAliveInterval 60

@@ -1,10 +1,9 @@
-{ pkgs, ... }:
-
-{
-
-  services = {
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
+{pkgs, ...}: {
+  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm = {
+    enable = true;
+    autoLogin.enable = true;
+    autoLogin.user = "rpth";
   };
 
   environment.systemPackages = with pkgs.gnomeExtensions; [
@@ -15,5 +14,4 @@
     appindicator
     search-light
   ];
-
 }
