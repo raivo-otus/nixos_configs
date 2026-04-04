@@ -28,6 +28,5 @@
   # We disable the stub listener so AdGuard can have the port to itself.
   services.resolved = {
     enable = true;
-    extraConfig = "DNSStubListener=no";
   };
 }
