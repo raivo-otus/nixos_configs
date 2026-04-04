@@ -14,7 +14,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
     nvf.url = "github:notashelf/nvf";
-    nix-flatpak.url = "github:getchoo/nix-flatpak";
   };
 
   outputs = {
@@ -22,7 +21,6 @@
     nixpkgs,
     nix-cachyos-kernel,
     nvf,
-    nix-flatpak,
     ...
   } @ inputs: let
     systems = ["x86_64-linux" "aarch64-darwin"];
@@ -45,7 +43,6 @@
     nixosConfigurations.Grenth = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        nix-flatpak.nixosModules.nix-flatpak
         ./hosts/Grenth/configuration.nix
         (
           {pkgs, ...}: {
