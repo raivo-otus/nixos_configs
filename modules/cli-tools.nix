@@ -1,13 +1,14 @@
 {pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    whipper
+    bc
     beets
-    stow
-    s-tui
     btop
+    comma
     fastfetch
     pv
-    bc
+    s-tui
+    stow
     tree
+    whipper
   ];
 }
