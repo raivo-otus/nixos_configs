@@ -2,7 +2,7 @@
 
 {
   sops.secrets."hermes-agent-env" = {
-    sopsFile = ../../secrets/grenth.yaml;
+    sopsFile = ../secrets/grenth.yaml;
   };
 
   services.hermes-agent = {
