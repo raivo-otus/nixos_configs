@@ -20,7 +20,6 @@
     #../../modules/gnome.nix
     ../../services/llama-cpp.nix
     ../../services/open-webui.nix
-    ../../services/hermes-agent.nix
     ../../users/rph.nix
     ../../users/stna.nix
   ];
