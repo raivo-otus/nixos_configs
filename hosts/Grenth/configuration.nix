@@ -10,7 +10,9 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/amd.nix
-    ../../modules/ollama_mcp.nix
+    ../../modules/ollama.nix
+    ../../services/llama-cpp.nix
+    ../../services/open-webui.nix
     ../../modules/gui-apps.nix
     ../../modules/cli-tools.nix
     ../../modules/devshells.nix
