@@ -2,7 +2,7 @@
 
 {
   sops.secrets."open-webui-env" = {
-    sopsFile = ../../secrets/grenth.yaml;
+    sopsFile = ../secrets/grenth.yaml;
   };
 
   services.open-webui = {
