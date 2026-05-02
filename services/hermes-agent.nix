@@ -1,6 +1,10 @@
-{ ... }:
+{ config, ... }:
 
 {
+  sops.secrets."hermes-agent-env" = {
+    sopsFile = ../../secrets/grenth.yaml;
+  };
+
   services.hermes-agent = {
     enable = true;
 
@@ -9,10 +13,14 @@
       default = "local";
     };
 
-    # API keys and secrets — create this file on the machine, it must not go in the Nix store.
-    # Minimum contents: OPENAI_API_KEY=local (llama.cpp requires a non-empty key)
-    environmentFiles = [ "/etc/hermes-agent.env" ];
+    environmentFiles = [ config.sops.secrets."hermes-agent-env".path ];
 
     addToSystemPackages = true;
+
+    container = {
+      enable = true;
+      backend = "docker";
+      hostUsers = [ "rph" ];
+    };
   };
 }

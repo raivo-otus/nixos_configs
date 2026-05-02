@@ -9,6 +9,9 @@
     wget
     curl
     unzip
+    sops
+    age
+    ssh-to-age
   ];
 
   programs.direnv = {

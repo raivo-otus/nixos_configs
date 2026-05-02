@@ -17,13 +17,11 @@
   };
 
   environment.systemPackages = with pkgs; [
-    ghostty
     tmux
     starship
   ];
 
   environment.variables = {
-    TERMINAL = "ghostty";
     EDITOR = "nvim";
   };
 }

@@ -15,6 +15,7 @@
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
     nvf.url = "github:notashelf/nvf";
     hermes-agent.url = "github:NousResearch/hermes-agent";
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs = {
@@ -23,6 +24,7 @@
     nix-cachyos-kernel,
     nvf,
     hermes-agent,
+    sops-nix,
     ...
   } @ inputs: let
     systems = ["x86_64-linux" "aarch64-darwin"];
@@ -46,6 +48,7 @@
       specialArgs = {inherit inputs;};
       modules = [
         hermes-agent.nixosModules.default
+        sops-nix.nixosModules.sops
         ./hosts/Grenth/configuration.nix
         (
           {pkgs, ...}: {
@@ -63,6 +66,7 @@
     nixosConfigurations.lyssa = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
+        sops-nix.nixosModules.sops
         ./hosts/lyssa/configuration.nix
         (
           {pkgs, ...}: {
