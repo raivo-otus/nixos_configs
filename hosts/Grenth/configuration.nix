@@ -14,9 +14,9 @@
     ../../modules/gui-apps.nix
     ../../modules/cli-tools.nix
     ../../modules/devshells.nix
-    #../../modules/gnome.nix
+    ../../modules/gnome.nix
     ../../modules/steam.nix
-    ../../modules/cosmic.nix
+    #../../modules/cosmic.nix
     ../../modules/zed.nix
     ../../modules/locale.nix
     ../../modules/shell.nix

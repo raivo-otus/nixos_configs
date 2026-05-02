@@ -1,9 +1,7 @@
 {pkgs, ...}: {
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.gdm = {
+  services.desktopManager.gnome.enable = true;
+  services.displayManager.gdm = {
     enable = true;
-    autoLogin.enable = true;
-    autoLogin.user = "rpth";
   };
 
   environment.systemPackages = with pkgs.gnomeExtensions; [
