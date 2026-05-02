@@ -14,6 +14,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
     nvf.url = "github:notashelf/nvf";
+    hermes-agent.url = "github:NousResearch/hermes-agent";
   };
 
   outputs = {
@@ -21,6 +22,7 @@
     nixpkgs,
     nix-cachyos-kernel,
     nvf,
+    hermes-agent,
     ...
   } @ inputs: let
     systems = ["x86_64-linux" "aarch64-darwin"];
@@ -43,6 +45,7 @@
     nixosConfigurations.Grenth = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
+        hermes-agent.nixosModules.default
         ./hosts/Grenth/configuration.nix
         (
           {pkgs, ...}: {

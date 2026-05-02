@@ -2,7 +2,7 @@
   users.users.rph = {
     isNormalUser = true;
     description = "rph";
-    extraGroups = ["networkmanager" "wheel" "storage" "gamemode"];
+    extraGroups = ["networkmanager" "wheel" "storage" "gamemode" "render"];
     shell = pkgs.zsh;
   };
 
