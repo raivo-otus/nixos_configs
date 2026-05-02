@@ -25,6 +25,7 @@
     ../../modules/nix-settings.nix
     ../../services/ssh.nix
     ../../services/tailscale.nix
+    ../../services/hermes-agent.nix
     ../../users/rph.nix
     ../../users/stna.nix
   ];
