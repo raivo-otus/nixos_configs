@@ -16,5 +16,11 @@
     environmentFiles = [ config.sops.secrets."hermes-agent-env".path ];
 
     addToSystemPackages = true;
+
+    container = {
+      enable = true;
+      backend = "docker";
+      hostUsers = [ "rph" ];
+    };
   };
 }
