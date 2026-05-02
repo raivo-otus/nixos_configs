@@ -21,15 +21,16 @@
     ../../modules/locale.nix
     ../../modules/shell.nix
     ../../modules/nix-settings.nix
+    ../../modules/sops.nix
     ../../modules/cli-tools.nix
     ../../modules/devshells.nix
-    ../../modules/gnome.nix
     ../../users/rpth.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [ "vsyscall=emulate" ]; # required by TeamSpeak 6
 
   hardware.graphics = {
     enable = true;
@@ -48,16 +49,8 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
+  # Autologin on tty1 so the user session is available after unattended reboots
+  services.getty.autologinUser = "rpth";
 
   environment.systemPackages = with pkgs; [
     vim

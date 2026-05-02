@@ -23,6 +23,7 @@
     ../../modules/locale.nix
     ../../modules/shell.nix
     ../../modules/nix-settings.nix
+    ../../modules/sops.nix
     ../../services/ssh.nix
     ../../services/tailscale.nix
     ../../services/hermes-agent.nix

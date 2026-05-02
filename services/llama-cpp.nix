@@ -14,6 +14,8 @@
       "--parallel" "2"
       "--alias" "local"
     ];
+    # If the 7900 GRE is not detected and inference falls back to CPU, uncomment:
+    # environmentVariables.HSA_OVERRIDE_GFX_VERSION = "11.0.0";
   };
 
   systemd.tmpfiles.rules = [
