@@ -1,3 +1,4 @@
+# lyssa-specific: paths /home/rpth/config/* and /srv/Glaurung/data are hardcoded for this host
 { config, pkgs, ... }:
 
 {

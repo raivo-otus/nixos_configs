@@ -1,3 +1,4 @@
+# Grenth-specific: model path /srv/Hoard/models/model.gguf is hardcoded for this host
 { pkgs, ... }:
 
 {
