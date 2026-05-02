@@ -5,8 +5,8 @@
 }: {
   # Enable Ollama
   services.ollama = {
+    package = pkgs.ollama-rocm;
     enable = true;
-    acceleration = "rocm";
     host = "0.0.0.0";
     port = 11434;
   };
