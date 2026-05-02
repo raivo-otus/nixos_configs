@@ -17,6 +17,7 @@
     ../../services/teamspeak.nix
     ../../services/tlp.nix
     ../../services/tailscale.nix
+    ../../services/ssh.nix
     ../../modules/locale.nix
     ../../modules/shell.nix
     ../../modules/nix-settings.nix
@@ -83,19 +84,6 @@
     device = "/dev/disk/by-uuid/126860b8-50b0-4f6e-910f-bf17e4f268e0";
     fsType = "ext4";
     options = ["nofail" "defaults"];
-  };
-
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-    openFirewall = true;
-    settings = {
-      PasswordAuthentication = false;
-    };
-    extraConfig = ''
-      ClientAliveInterval 60
-      ClientAliveCountMax 3
-    '';
   };
 
   # This value determines the NixOS release from which the default

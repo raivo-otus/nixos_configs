@@ -21,6 +21,8 @@
     ../../modules/locale.nix
     ../../modules/shell.nix
     ../../modules/nix-settings.nix
+    ../../services/ssh.nix
+    ../../services/tailscale.nix
     ../../users/rph.nix
     ../../users/stna.nix
   ];
