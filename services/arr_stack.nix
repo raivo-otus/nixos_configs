@@ -1,3 +1,4 @@
+# lyssa-specific: paths /home/rpth/config/* and /srv/Glaurung/data are hardcoded for this host
 { config, pkgs, ... }:
 
 {
@@ -7,11 +8,11 @@
     sonarr = {
       image = "lscr.io/linuxserver/sonarr:latest";
       autoStart = true;
-      ports = [ "8989:8989" ];
+      ports = [ "127.0.0.1:8989:8989" ];
       environment = {
         PUID = "1000";
         PGID = "1000";
-        TZ = "Etc/UTC";
+        TZ = "Europe/Helsinki";
       };
       volumes = [
         "/home/rpth/config/sonarr:/config"
@@ -22,11 +23,11 @@
     radarr = {
       image = "lscr.io/linuxserver/radarr:latest";
       autoStart = true;
-      ports = [ "7878:7878" ];
+      ports = [ "127.0.0.1:7878:7878" ];
       environment = {
         PUID = "1000";
         PGID = "1000";
-        TZ = "Etc/UTC";
+        TZ = "Europe/Helsinki";
       };
       volumes = [
         "/home/rpth/config/radarr:/config"
@@ -34,17 +35,17 @@
       ];
     };
 
-    sabnzb = {
+    sabnzbd = {
       image = "lscr.io/linuxserver/sabnzbd:latest";
       autoStart = true;
-      ports = [ "8080:8080" ];
+      ports = [ "127.0.0.1:8080:8080" ];
       environment = {
         PUID = "1000";
         PGID = "1000";
-        TZ = "Etc/UTC";
+        TZ = "Europe/Helsinki";
       };
       volumes = [
-        "/home/rpth/config/sabnzb:/config"
+        "/home/rpth/config/sabnzbd:/config"
         "/srv/Glaurung/data:/data"
       ];
     };
@@ -52,11 +53,11 @@
     jellyfin = {
       image = "lscr.io/linuxserver/jellyfin:latest";
       autoStart = true;
-      ports = [ "8096:8096" ];
+      ports = [ "127.0.0.1:8096:8096" ];
       environment = {
         PUID = "1000";
         PGID = "1000";
-        TZ = "Etc/UTC";
+        TZ = "Europe/Helsinki";
       };
       volumes = [
         "/home/rpth/config/jellyfin:/config"
@@ -70,28 +71,17 @@
 
   };
   
-  # 3. Open Firewall Ports
-  # Even with Docker, it's good practice to explicitly open these in the host firewall
-  networking.firewall = {
-    allowedTCPPorts = [ 
-      8989 # Sonarr
-      7878 # Radarr
-      8080 # Sabnzb
-      8096 # Jellyfin
-    ];
-
-    allowedUDPPorts = [
-      1900
-      7359
-    ];
-  };
+  # 3. Firewall
+  # Services bind to 127.0.0.1 and are only reachable via Caddy — no direct TCP exposure.
+  # UDP ports are for Jellyfin LAN auto-discovery and must remain network-accessible.
+  networking.firewall.allowedUDPPorts = [ 1900 7359 ];
 
   # Ensure directories exist with correct permissions (User 1000)
   systemd.tmpfiles.rules = [
     "d /home/rpth/config/sonarr 0755 1000 1000 -"
     "d /home/rpth/config/radarr 0755 1000 1000 -"
     "d /home/rpth/config/jellyfin 0755 1000 1000 -"
-    "d /home/rpth/config/sabnzb 0755 1000 1000 -"
+    "d /home/rpth/config/sabnzbd 0755 1000 1000 -"
     "d /srv/Glaurung/data/ 0775 1000 1000 -"
     "d /srv/Glaurung/data/usenet/incomplete 0775 1000 1000 -"
     "d /srv/Glaurung/data/usenet/complete 0775 1000 1000 -"

@@ -7,15 +7,15 @@
     enable = true;
 
     # 1. Open the Firewall automatically
-    # This opens Port 53 (DNS) and Port 3000 (Initial Web Setup)
+    # Opens Port 53 (DNS) to the network. Port 3000 is loopback-only, so it stays internal.
     openFirewall = true;
 
     # 2. Configure the Listen Address
-    # We force it to listen on all interfaces so Caddy can reach it at 127.0.0.1
-    # and your network can reach it at 192.168.1.X
+    # Bind the web UI to loopback only — Caddy proxies adguard.lyssa to 127.0.0.1:3000.
+    # DNS binds to all interfaces so the network can reach it.
     settings = {
       http = {
-        address = "0.0.0.0:3000";
+        address = "127.0.0.1:3000";
       };
       dns = {
         bind_hosts = ["0.0.0.0"];

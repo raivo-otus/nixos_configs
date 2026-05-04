@@ -1,14 +1,27 @@
 {pkgs, ...}: {
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    enableBashCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
 
-  environment.variables = {
-    TERMINAL = "ghostty";
-    EDITOR = "nvim";
+    ohMyZsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "z"
+        "extract"
+      ];
+    };
   };
 
   environment.systemPackages = with pkgs; [
-    ghostty
     tmux
     starship
   ];
+
+  environment.variables = {
+    EDITOR = "nvim";
+  };
 }

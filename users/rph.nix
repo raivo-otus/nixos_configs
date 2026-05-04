@@ -2,11 +2,8 @@
   users.users.rph = {
     isNormalUser = true;
     description = "rph";
-    extraGroups = ["networkmanager" "wheel" "storage" "gamemode"];
+    extraGroups = ["networkmanager" "wheel" "storage" "gamemode" "render" "video" "docker"];
     shell = pkgs.zsh;
   };
 
-  environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = ["/home/rph/.steam/root/compatibilitytools.d"];
-  };
 }

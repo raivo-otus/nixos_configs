@@ -2,8 +2,6 @@
 
 {
 
-  boot.kernelParams = [ "vsyscall=emulate" ];
-
   virtualisation.oci-containers = {
     containers.teamspeak6 = {
       image = "teamspeaksystems/teamspeak6-server:latest";
