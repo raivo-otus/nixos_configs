@@ -9,7 +9,7 @@
       "--n-gpu-layers"
       "999" # offload all layers to the 7900 GRE
       "--ctx-size"
-      "65536"
+      "131072"
       "--parallel"
       "1"
       "--alias"
