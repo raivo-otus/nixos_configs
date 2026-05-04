@@ -2,10 +2,13 @@
   services.hermes-agent = {
     enable = true;
     addToSystemPackages = true;
+    container = {
+      enable = true;
+      backend = "docker";
+      hostUsers = ["rph"];
+    };
     settings.model = {
-      # Point to the local llama.cpp OpenAI-compatible API
-      base_url = "http://localhost:8081/v1";
-      # Matches the --alias flag set in llama-cpp.nix
+      base_url = "http://host.docker.internal:8081/v1";
       default = "local";
     };
   };
