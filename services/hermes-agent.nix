@@ -8,7 +8,8 @@
       hostUsers = ["rph"];
     };
     settings.model = {
-      base_url = "http://host.docker.internal:8081/v1";
+      # host.docker.internal doesn't exist on Linux; use Docker bridge gateway
+      base_url = "http://172.17.0.1:8081/v1";
       default = "local";
     };
   };
