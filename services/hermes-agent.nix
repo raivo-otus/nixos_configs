@@ -6,6 +6,10 @@
       enable = true;
       backend = "docker";
       hostUsers = ["rph"];
+      extraVolumes = [
+        "/home/rph/.hermes:/home/hermes/.hermes:rw"
+        "/home/rph/Projects/hermes_wiki:/home/hermes/hermes_wiki:rw"
+      ];
     };
     settings.model = {
       # host.docker.internal doesn't exist on Linux; use Docker bridge gateway
