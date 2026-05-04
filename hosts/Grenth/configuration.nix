@@ -18,6 +18,7 @@
     ../../modules/cosmic.nix
     ../../modules/zed.nix
     #../../modules/gnome.nix
+    ../../services/hermes-agent.nix
     ../../services/llama-cpp.nix
     ../../services/open-webui.nix
     ../../users/rph.nix
