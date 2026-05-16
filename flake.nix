@@ -4,9 +4,11 @@
   nixConfig = {
     extra-substituters = [
       "https://nix-community.cachix.org"
+      "https://cache.numtide.com"
     ];
     extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+      "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
     ];
   };
 
@@ -15,6 +17,7 @@
     nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel";
     nvf.url = "github:notashelf/nvf";
     hermes-agent.url = "github:NousResearch/hermes-agent";
+    llm-agents.url = "github:numtide/llm-agents.nix";
   };
 
   outputs = {
@@ -23,6 +26,7 @@
     nix-cachyos-kernel,
     nvf,
     hermes-agent,
+    llm-agents,
     ...
   } @ inputs: let
     systems = ["x86_64-linux" "aarch64-darwin"];
